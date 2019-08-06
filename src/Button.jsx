@@ -2,10 +2,12 @@ import React from 'react';
 import './Button.css';
 
 function Button(props) {
-    const { direction } = props;
+    const { name, direction } = props;
     return (
-        <div>
-            <button>{direction === 'prev' ? '<' : '>'}</button>
+        <div className="button-wrap">
+            <button className={'button ' + direction} aria-label={direction}>
+                {name}
+            </button>
         </div>
     );
 }
