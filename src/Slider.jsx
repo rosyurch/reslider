@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from './Button';
 import './Slider.css';
 import Carousel from './Carousel';
+import Dots from './Dots';
 
 import img1 from './images/1.jpg';
 import img2 from './images/2.jpg';
@@ -17,13 +18,15 @@ function Slider(props) {
     const nextSlideIn = () => setShift(cur => (cur + 1) % imgArr.length);
     const prevSlideIn = () => setShift(cur => (cur - 1 < 0 ? imgArr.length - 1 : cur - 1));
 
-    // const nextFadeIn = () => console.log('PREV');
-    // const prevFadeIn = () => console.log('NEXT');
+    const settingHandler = () => {
+        setSlideIn(cur => !cur);
+        setShift(0);
+    };
 
-    const settingHandler = () => setSlideIn(cur => !cur);
+    const dotHandler = e => setShift(Number(e.target.id));
 
     return (
-        <div>
+        <main>
             <p>
                 <button className="setting" onClick={settingHandler}>
                     {slideIn ? 'Slide in' : 'Fade in'}
@@ -34,7 +37,8 @@ function Slider(props) {
                 <Carousel shift={shift} imgArr={imgArr} slideIn={slideIn} />
                 <Button name=">" direction="next" onClick={nextSlideIn} />
             </div>
-        </div>
+            <Dots imgArr={imgArr} shift={shift} dotHandler={dotHandler} />
+        </main>
     );
 }
 

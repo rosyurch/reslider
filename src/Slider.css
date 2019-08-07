@@ -10,16 +10,18 @@
     display: flex;
     flex: row nowrap;
     width: 2400px;
-    transition: transform 1s;
+    transition: transform 0.6s;
 }
 
 .img-container img {
     width: 600px;
     height: 600px;
+    max-height: 70vh;
 }
 
 .show-container {
     overflow: hidden;
+    min-height: 400px;
     width: 600px;
 }
 
@@ -32,21 +34,35 @@
     font-size: 1.4em;
 }
 
-div .slider .img-container.fade-in {
+main .slider .img-container.fade-in {
     display: block;
     position: relative;
     width: 600px;
     height: 600px;
+    max-height: 70vh;
 }
 
-div .slider .img-container.fade-in img {
+main .slider .img-container.fade-in img {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 0.6s;
 }
 
-div .slider .img-container.fade-in img.current {
+main .slider .img-container.fade-in img.current {
     opacity: 1;
+}
+
+.dot-wrap .dot {
+    width: 35px;
+    height: 35px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 2px solid #13a303;
+    background-color: #282c34;
+}
+
+.dot-wrap .dot.current-dot {
+    background-color: #fff;
 }
