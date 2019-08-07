@@ -9,7 +9,7 @@
 .img-container {
     display: flex;
     flex: row nowrap;
-    width: 2400px;
+    /* width: 2400px; */
     transition: transform 0.6s;
 }
 
