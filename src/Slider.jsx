@@ -15,8 +15,8 @@ function Slider(props) {
 
     const imgArr = [img1, img2, img3, img4];
 
-    const nextSlideIn = () => setShift(cur => (cur + 1) % imgArr.length);
-    const prevSlideIn = () => setShift(cur => (cur - 1 < 0 ? imgArr.length - 1 : cur - 1));
+    const next = () => setShift(cur => (cur + 1) % imgArr.length);
+    const prev = () => setShift(cur => (cur - 1 < 0 ? imgArr.length - 1 : cur - 1));
 
     const settingHandler = () => {
         setSlideIn(cur => !cur);
@@ -33,9 +33,9 @@ function Slider(props) {
                 </button>
             </p>
             <div className="slider">
-                <Button name="<" direction="previous" onClick={prevSlideIn} />
+                <Button name="<" direction="previous" onClick={prev} />
                 <Carousel shift={shift} imgArr={imgArr} slideIn={slideIn} />
-                <Button name=">" direction="next" onClick={nextSlideIn} />
+                <Button name=">" direction="next" onClick={next} />
             </div>
             <Dots imgArr={imgArr} shift={shift} dotHandler={dotHandler} />
         </main>
