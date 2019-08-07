@@ -5,7 +5,6 @@ import Slider from './Slider';
 function App() {
     return (
         <div className="App">
-            <header />
             <Slider />
         </div>
     );

@@ -1,3 +1,52 @@
 .slider {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.img-container {
+    display: flex;
+    flex: row nowrap;
+    width: 2400px;
+    transition: transform 1s;
+}
+
+.img-container img {
+    width: 600px;
+    height: 600px;
+}
+
+.show-container {
+    overflow: hidden;
+    width: 600px;
+}
+
+.setting {
+    background-color: #282c34;
+    color: #fff;
+    border: 2px solid #13a303;
+    border-radius: 20px;
+    padding: 0.5em 4em;
+    font-size: 1.4em;
+}
+
+div .slider .img-container.fade-in {
+    display: block;
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+div .slider .img-container.fade-in img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+div .slider .img-container.fade-in img.current {
+    opacity: 1;
 }
