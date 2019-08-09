@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const imageWidth = 600; //px
 
@@ -12,39 +12,38 @@ const ShowConainer = styled.div`
 const ImgContainer = styled.div`
     ${props =>
         props.slideIn
-            ? css`
-                  display: flex;
-                  flex: row nowrap;
-                  position: static;
-                  width: ${props => props.imgArr.length * imageWidth}px;
-                  height: ${imageWidth}px;
-                  transform: translateX(-${props.shift * imageWidth}px);
-                  transition: transform 0.6s;
-              `
-            : css`
-                  display: block;
-                  position: relative;
-                  /* width: 600px;
-                  height: 600px; */
-                  max-height: 70vh;
+            ? `
+                display: flex;
+                flex: row nowrap;
+                position: static;
+                width: ${props.imgArr.length * imageWidth}px;
+                height: ${imageWidth}px;
+                transform: translateX(-${props.shift * imageWidth}px);
+                transition: transform 0.6s;
+            `
+            : `
+                display: block;
+                position: relative;
+                
+                max-height: 70vh;
               `}
 `;
 
 const Img = styled.img`
-    width: 600px;
-    height: 600px;
+    width: ${imageWidth}px;
+    height: ${imageWidth}px;
     ${props =>
         props.slideIn
-            ? css`
-                  position: static;
+            ? `
+                position: static;
               `
-            : css`
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  transition: opacity 0.9s;
-                  opacity: ${props => (props.isCurrent ? 1 : 0)};
-              `}
+            : `
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: ${props.isCurrent ? 1 : 0};
+                transition: opacity 0.9s;
+              `};
 `;
 
 function Carousel(props) {
@@ -52,6 +51,7 @@ function Carousel(props) {
     return (
         <ShowConainer className="show-container">
             <ImgContainer className="img-container" shift={shift} slideIn={slideIn} imgArr={imgArr}>
+                {/* {console.log(imgArr)} */}
                 {imgArr.map((img, ind, arr) => (
                     <Img src={img} key={img} isCurrent={arr.indexOf(img) === shift} slideIn={slideIn} />
                 ))}
