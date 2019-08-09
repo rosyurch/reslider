@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Button from './Button';
-import './Slider.css';
 import Carousel from './Carousel';
 import Dots from './Dots';
 import styled from 'styled-components';
