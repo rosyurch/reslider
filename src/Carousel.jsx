@@ -5,8 +5,13 @@ const imageWidth = 600; //px
 
 const ShowConainer = styled.div`
     height: ${imageWidth}px;
+    max-height: 75vh;
     width: ${imageWidth}px;
+    margin: 0 auto;
     overflow: hidden;
+    @media (max-width: 600px) {
+        width: 100vw;
+    }
 `;
 
 const ImgContainer = styled.div`
@@ -18,20 +23,31 @@ const ImgContainer = styled.div`
                 position: static;
                 width: ${props.imgArr.length * imageWidth}px;
                 height: ${imageWidth}px;
+                max-height: 75vh;
                 transform: translateX(-${props.shift * imageWidth}px);
                 transition: transform 0.6s;
+                @media (max-width: 600px) {
+                    width: ${props.imgArr.length * 100}vw;
+                    transform: translateX(-${props.shift * 100}vw);
+                }
             `
             : `
                 display: block;
                 position: relative;
-                
                 max-height: 70vh;
+                @media (max-width: 600px) {
+                    width: 100vw;
+                }
               `}
 `;
 
 const Img = styled.img`
     width: ${imageWidth}px;
     height: ${imageWidth}px;
+    max-height: 75vh;
+    @media (max-width: 600px) {
+        width: 100vw;
+    }
     ${props =>
         props.slideIn
             ? `
@@ -52,7 +68,6 @@ function Carousel(props) {
     return (
         <ShowConainer className="show-container">
             <ImgContainer className="img-container" shift={shift} slideIn={slideIn} imgArr={imgArr}>
-                {/* {console.log(imgArr)} */}
                 {imgArr.map((img, ind, arr) => (
                     <Img src={img} key={img} isCurrent={arr.indexOf(img) === shift} slideIn={slideIn} />
                 ))}
