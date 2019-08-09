@@ -53,7 +53,7 @@ function Carousel(props) {
         <ShowConainer className="show-container">
             <ImgContainer className="img-container" shift={shift} slideIn={slideIn} imgArr={imgArr}>
                 {imgArr.map((img, ind, arr) => (
-                    <Img src={img} alt="" key={img} isCurrent={arr.indexOf(img) === shift} />
+                    <Img src={img} key={img} isCurrent={arr.indexOf(img) === shift} slideIn={slideIn} />
                 ))}
             </ImgContainer>
         </ShowConainer>
