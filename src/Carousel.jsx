@@ -42,6 +42,7 @@ const Img = styled.img`
                 top: 0;
                 left: 0;
                 opacity: ${props.isCurrent ? 1 : 0};
+                z-index: ${props.isCurrent ? 5 : 0}
                 transition: opacity 0.9s;
               `};
 `;
